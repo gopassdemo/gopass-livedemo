@@ -1,12 +1,16 @@
 echo "Setting up environment for livedemo"
-DEMO_DIR=$(pwd)
+DEMODIR=$(pwd)
+DEMODIR_ESCAPED=$(echo $DEMODIR| sed -e 's/[\/&]/\\&/g')
+echo "Demo Basedir is $DEMODIR"
+
+cat gopass_config.yml | sed -e "s/DEMODIR/$DEMODIR_ESCAPED/" > gopass_config.yml.rendered
+export GOPASS_CONFIG=$DEMODIR/gopass_config.yml.rendered
 
 HISTSIZE=0
 HISTSIZE=10000
-export HISTFILE=$DEMO_DIR/zsh_history
+export HISTFILE=$DEMODIR/zsh_history
 fc -R $HISTFILE
 
-echo "Demo Basedir is $DEMO_DIR"
 echo "Ready, press enter"
 read
 clear

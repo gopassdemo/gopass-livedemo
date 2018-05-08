@@ -1,0 +1,13 @@
+root:
+  askformore: false
+  autoimport: false
+  autosync: false
+  cliptimeout: 0
+  noconfirm: true
+  nopager: false
+  path: "DEMODIR"
+  safecontent: false
+  usesymbols: false
+  nocolor: false
+mounts: {}
+version: 1.6.11
