@@ -34,6 +34,8 @@ gopass show banking/mybank.com creditcard
 gopass show banking/mybank.com
 gopass edit banking/mybank.com
 #
+#END (Basics)
+
 #Internals
 gopass show banking/mybank.com
 #
@@ -46,3 +48,25 @@ git log
 git reset --hard HEAD~
 git log
 gopass show banking/mybank.com
+#
+#END (Internals)
+
+#Mounts and Recipients
+#
+# Multiple Collections aka Mounts
+gopass mounts
+# Clone an existing repository, here a local example
+gopass clone --path ./shared-mount ../demo-mount/ shared
+gopass mounts
+gopass ls
+#
+#Sharing passwords with collaborators
+gopass recipients
+gopass recipients add torvalds@kernel.org
+gopass sync
+#
+# Remove mount
+gopass mounts remove shared
+gopass ls
+#
+#END (Mounts and Recipients)
