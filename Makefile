@@ -5,7 +5,7 @@ update:
 noremote:
 	git remote remove origin || echo "no remote origin found"
 run: noremote
-	rm -rf ../shared-mount
+	rm -rf /tmp/shared-mount
 	doitlive play runit.sh
 	git reset --hard start
 remote:

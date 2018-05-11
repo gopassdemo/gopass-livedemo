@@ -54,7 +54,7 @@ clear
 gopass mounts
 #
 #Clone an existing repository, here a local example
-gopass clone --path ../shared-mount git@github.com:gopassdemo/demo-mount.git shared
+gopass clone --path /tmp/shared-mount git@github.com:gopassdemo/demo-mount.git shared
 gopass mounts
 gopass ls
 #
