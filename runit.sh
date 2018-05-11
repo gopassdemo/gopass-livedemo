@@ -17,9 +17,6 @@ gopass show accounts/justwatch.com
 gopass generate accounts/github.com/anotheruser
 gopass show accounts/github.com/anotheruser
 #
-#Sync our local changes
-gopass sync
-#
 #Fuzzy search
 gopass gith
 #
@@ -35,7 +32,7 @@ gopass show banking/mybank.com
 gopass edit banking/mybank.com
 #
 #END (Basics)
-
+cls
 #Internals
 gopass show banking/mybank.com
 #
@@ -50,19 +47,24 @@ git log
 gopass show banking/mybank.com
 #
 #END (Internals)
-
+cls
 #Mounts and Recipients
 #
 # Multiple Collections aka Mounts
 gopass mounts
 # Clone an existing repository, here a local example
-gopass clone --path ./shared-mount ../demo-mount/ shared
+gopass clone --path ../shared-mount ../demo-mount/ shared
 gopass mounts
 gopass ls
 #
 #Sharing passwords with collaborators
 gopass recipients
 gopass recipients add torvalds@kernel.org
+#
+#Add a secret to shared
+gopass generate shared/anothersecret
+#
+#Pushing changes to remote
 gopass sync
 #
 # Remove mount
@@ -70,3 +72,4 @@ gopass mounts remove shared
 gopass ls
 #
 #END (Mounts and Recipients)
+cls
