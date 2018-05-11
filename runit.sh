@@ -32,28 +32,29 @@ gopass show banking/mybank.com
 gopass edit banking/mybank.com
 #
 #END (Basics)
-cls
+clear
 #Internals
 gopass show banking/mybank.com
 #
 #Change password
 gopass generate banking/mybank.com
 gopass show banking/mybank.com
-git log
+git log -n 5
 #
 #Recover old password
 git reset --hard HEAD~
-git log
+git log -n 5
 gopass show banking/mybank.com
 #
 #END (Internals)
-cls
+clear
 #Mounts and Recipients
 #
-# Multiple Collections aka Mounts
+#Multiple Collections aka Mounts
 gopass mounts
-# Clone an existing repository, here a local example
-gopass clone --path ../shared-mount ../demo-mount/ shared
+#
+#Clone an existing repository, here a local example
+gopass clone --path ../shared-mount git@github.com:gopassdemo/demo-mount.git shared
 gopass mounts
 gopass ls
 #
@@ -72,4 +73,4 @@ gopass mounts remove shared
 gopass ls
 #
 #END (Mounts and Recipients)
-cls
+clear
