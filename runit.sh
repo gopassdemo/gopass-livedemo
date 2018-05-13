@@ -55,6 +55,8 @@ gopass mounts
 #
 #Clone an existing repository, here a local example
 gopass clone --path /tmp/shared-mount git@github.com:gopassdemo/demo-mount.git shared
+#
+#Display mounts and content
 gopass mounts
 gopass ls
 #

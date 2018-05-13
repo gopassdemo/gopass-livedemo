@@ -9,7 +9,7 @@ run: noremote
 	doitlive play runit.sh
 	git reset --hard start
 remote:
-	git remote add origin git@github.com:gopassdemo/demo-mount.git || echo "already have remote origin set up"
+	git remote add origin git@github.com:gopassdemo/gopass-livedemo.git || echo "already have remote origin set up"
 push: remote
 	git push
 	git remote remove origin
