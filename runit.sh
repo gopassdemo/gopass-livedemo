@@ -4,6 +4,7 @@
 # doitlive prompt: ➜ {dir.cyan} $
 
 . ./setup.zshenv
+eval "$(doitlive completion)"
 
 #Basics
 #
@@ -33,7 +34,7 @@ gopass edit banking/mybank.com
 #
 #END (Basics)
 clear
-#Internals
+#History
 gopass show banking/mybank.com
 #
 #Change password
@@ -46,7 +47,7 @@ git reset --hard HEAD~
 git log -n 5
 gopass show banking/mybank.com
 #
-#END (Internals)
+#END (History)
 clear
 #Mounts and Recipients
 #
@@ -54,25 +55,34 @@ clear
 gopass mounts
 #
 #Clone an existing repository, here a local example
-gopass clone --path /tmp/shared-mount git@github.com:gopassdemo/demo-mount.git shared
+gopass clone git@github.com:gopassdemo/demo-mount.git shared
 #
 #Display mounts and content
 gopass mounts
 gopass ls
+gopass show shared/wifi-password
+#
+#Add a secret to shared
+gopass generate shared/anothersecret
 #
 #Sharing passwords with collaborators
 gopass recipients
 gopass recipients add torvalds@kernel.org
 #
-#Add a secret to shared
-gopass generate shared/anothersecret
-#
 #Pushing changes to remote
 gopass sync
 #
-# Remove mount
+#Remove mount
 gopass mounts remove shared
 gopass ls
 #
 #END (Mounts and Recipients)
 clear
+#
+#Bonus: Auditing
+gopass audit
+#
+#Check passwords vs. known data breaches
+gopass_dev audit hibp --api
+#
+#END (Auditing)
